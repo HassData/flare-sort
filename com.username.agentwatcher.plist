@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+   "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.username.flaresort</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PYTHONPATH</key>
+        <string>/Users/hassan.albujasim/.pyenv/versions/3.11.9/lib/python3.11/site-packages</string> <!-- Adjust the path as necessary -->
+    </dict>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/hassan.albujasim/.pyenv/versions/3.11.9/bin/python</string> <!-- Adjust the path as necessary -->
+        <string>/Users/hassan.albujasim/my-sand/flare-sort/flaresort.py</string> <!-- Adjust the path as necessary -->
+    </array>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/tmp/agentwatcher.out</string>
+
+    <key>StandardErrorPath</key>
+    <string>/tmp/agentwatcher.err</string>
+</dict>
+</plist>

@@ -1,26 +1,64 @@
-# flare-sort
-script to sort flares into folders
+# flaresort
+
+A script to organize flare files into agent-specific folders.
+
 ## Overview
 
-This script organizes flare files downloaded from the internet by copying them into folders named after the agent. Each new flare for an agent is given an incremented number. The script also cleans up the zip folder after processing.
+`flaresort` helps you manage flare files by sorting them into folders named after each agent. Each new flare is numbered sequentially. The script also removes processed zip files.
 
 ## Usage
 
-You can run the script manually using:
+Run the script manually in the background:
 
 ```bash
 nohup python3 flare_sort.py &
 ```
 
-This will keep the script running in the background, but you will need to restart it each time your computer reboots.
+**Note:** You must restart the script after each reboot if running manually.
 
-## Automation
+## Automating on macOS
 
-To run the script automatically on macOS startup, you can use a LaunchAgent with a `.plist` file. Place the `.plist` in `~/Library/LaunchAgents` and configure it to run the script at login.
+To run the script automatically at login, use a LaunchAgent:
+
+1. Create a `.plist` file (e.g., `com.username.flaresort.plist`) in `~/Library/LaunchAgents`.
+2. Configure the `.plist`:
+
+    - **PYTHONPATH:**  
+      Set to your Python site-packages directory.  
+      Find it with:  
+      ```bash
+      python3 -m site
+      ```
+      Example:  
+      `/Users/yourname/.pyenv/versions/X.X.X/lib/pythonX.X/site-packages`
+
+    - **ProgramArguments:**  
+      - First: Full path to your Python interpreter  
+      - Second: Full path to `flare_sort.py`  
+      Example:
+      ```xml
+      <string>/Users/yourname/.pyenv/versions/X.X.X/bin/python</string>
+      <string>/Users/yourname/path/to/flare_sort.py</string>
+      ```
+
+3. Load the agent:
+    ```bash
+    launchctl load ~/Library/LaunchAgents/com.username.flaresort.plist
+    ```
+
+4. To unload:
+    ```bash
+    launchctl unload ~/Library/LaunchAgents/com.username.flaresort.plist
+    ```
+
+5. Check status:
+    ```bash
+    launchctl list | grep flaresort
+    ```
 
 ## Features
 
-- Copies flare files into agent-specific folders
-- Numbers each flare iteration
+- Sorts flare files into agent folders
+- Numbers each flare per agent
 - Cleans up processed zip files
 - Supports manual and automatic execution
