@@ -22,9 +22,9 @@
     <true/>
 
     <key>StandardOutPath</key>
-    <string>/tmp/agentwatcher.out</string>
+    <string>/tmp/flaresort.out</string>
 
     <key>StandardErrorPath</key>
-    <string>/tmp/agentwatcher.err</string>
+    <string>/tmp/flaresort.err</string>
 </dict>
 </plist>

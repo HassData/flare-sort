@@ -18,7 +18,7 @@ def extract_zip_to_folder(zip_path):
     filename = os.path.basename(zip_path)
 
     # Only handle datadog-agent debug zips
-    match = re.match(r'datadog-agent-.*?-debug\.zip', filename)
+    match = re.match(r'datadog-agent-.*?\.zip', filename)
     if not match:
         print(f"❌ Skipping unrelated file: {filename}")
         return
