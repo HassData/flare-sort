@@ -16,7 +16,7 @@ nohup python3 flare_sort.py &
 
 **Note:** You must restart the script after each reboot if running manually.
 
-## Automating on macOS
+## (Optional) Automating on macOS
 
 To run the script automatically at login, use a LaunchAgent:
 
